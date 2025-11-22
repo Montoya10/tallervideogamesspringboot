@@ -30,16 +30,16 @@
       <h1 class="mb-4">Videojuegos Disponibles</h1>
 
       <div class="row row-cols-1 row-cols-md-4 g-4 mt-2">
-        <div class="col" th:each="g : ${games}">
+        <div class="col" th:each="g, stat : ${games}">
           <div class="card h-100">
-            <img th:src="@{'/img/' + ${g.image}}" class="card-img-top" />
+            <img th:src="@{'/img/' + ${g.image}}" class="card-img-top" th:alt="${g.title}" onerror="this.src='/img/icono.png'" />
             <div class="card-body">
               <h5 class="card-title" th:text="${g.title}"></h5>
               <p class="card-text" th:text="${g.description}"></p>
               <p class="fw-bold" th:text="'$ ' + ${g.price}"></p>
             </div>
             <div class="card-footer text-center">
-              <a href="#" class="btn btn-primary">Comprar</a>
+              <a th:href="@{'/videogames/buy/' + ${stat.index}}" class="btn btn-primary">Comprar</a>
             </div>
           </div>
         </div>

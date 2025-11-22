@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gracias por su compra</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark mb-4">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/videogames">
+          <img src="/img/icono.png" alt="" width="30" height="30" class="d-inline-block align-text-top" />
+          Pedido completado
+        </a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-body text-center">
+              <h2 class="text-success">¡Gracias por tu compra!</h2>
+              <p class="lead">Has comprado: <strong th:text="${game.title}">Juego</strong></p>
+              <p>Orden: <code th:text="${orderId}">ORDER1234</code></p>
+              <p>Fecha: <span th:text="${timestamp}">--</span></p>
+
+              <a class="btn btn-primary mt-3" href="/videogames">Volver a la lista</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
